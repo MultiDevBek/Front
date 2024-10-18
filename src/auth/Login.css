@@ -1,4 +1,6 @@
-/* Login form container */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap");
+
+
 .login-container {
     width: 40%;
     margin: 0 auto;
@@ -13,6 +15,7 @@
     align-items: center;
     margin-top: 10em;  
     font-size: large;
+    font-family: "Roboto", sans-serif;
 }
 
 
@@ -40,4 +43,10 @@
 .login-error {
     color: red;
     margin-top: 10px;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: small;
 }
