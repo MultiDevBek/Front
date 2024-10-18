@@ -11,19 +11,19 @@ function Sidebar() {
             <img src={crm_logo} alt="logo" className="logo"/>
             <ul>
                 <li>
-                    <Link to='/'><MdBorderColor />Дэшборды</Link>
+                    <Link to='dash'><MdBorderColor />Дэшборды</Link>
                 </li>
 
                 <li>
-                    <Link to='/applications'><MdBorderColor />Заявки</Link>
+                    <Link to='applications'><MdBorderColor />Заявки</Link>
                 </li>
 
                 <li>
-                    <Link to='/users'><HiUsers />Пользователи</Link>
+                    <Link to='users'><HiUsers />Пользователи</Link>
                 </li>
 
                 <li>
-                    <Link><RxExit />Выход</Link>
+                    <Link to= '/'><RxExit />Выход</Link>
                 </li>
             </ul>
         </div>

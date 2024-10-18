@@ -4,7 +4,7 @@
 function Applications () {
     return (
         <div>
-            Заяки
+            Заявки
         </div>
     )
 }
