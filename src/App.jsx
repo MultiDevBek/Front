@@ -6,6 +6,7 @@ import Applications from '../src/pages/Applications';
 import Users from '../src/pages/Users';
 import Login from '../src/auth/Login';
 import AuthLayout from '../src/components/AuthLayout';
+import AddUser from '../src/components/AddUser';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
                   <Route path='dash' element={<Dashboards />}/>
                   <Route path='applications' element={<Applications />}/>
                   <Route path='users' element={<Users />}/>
+                  <Route path=' add-user' element={<AddUser />}/>
                 </Routes>
               </div>
             </div>
