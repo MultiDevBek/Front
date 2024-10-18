@@ -8,24 +8,26 @@ import { Link } from "react-router-dom";
 function Sidebar() {
     return (
         <div className="sidebar">
-            <img src={crm_logo} alt="logo" className="logo"/>
-            <ul>
-                <li>
-                    <Link to='dash'><MdBorderColor />Дэшборды</Link>
-                </li>
+            <div className="sidebar_content">
+                <img src={crm_logo} alt="logo" className="logo"/>
+                <ul>
+                    <li>
+                        <Link to='dash'><MdBorderColor />Дэшборды</Link>
+                    </li>
 
-                <li>
-                    <Link to='applications'><MdBorderColor />Заявки</Link>
-                </li>
+                    <li>
+                        <Link to='applications'><MdBorderColor />Заявки</Link>
+                    </li>
 
-                <li>
-                    <Link to='users'><HiUsers />Пользователи</Link>
-                </li>
+                    <li>
+                        <Link to='users'><HiUsers />Пользователи</Link>
+                    </li>
 
-                <li>
-                    <Link to= '/'><RxExit />Выход</Link>
-                </li>
-            </ul>
+                    <li>
+                        <Link to= '/'><RxExit />Выход</Link>
+                    </li>
+                </ul>
+            </div>
         </div>
     );
 }

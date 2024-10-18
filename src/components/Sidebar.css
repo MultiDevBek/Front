@@ -1,9 +1,14 @@
 .sidebar {
+    /* margin-top: ; */
     width: 240px;
     background: #011627;
     position: fixed;
     height: 95vh;
     padding: 5px;
+}
+
+.sidebar_content {
+    margin-top: 60px;
 }
 
 ul {
