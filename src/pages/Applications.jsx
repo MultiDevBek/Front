@@ -141,6 +141,7 @@ function Applications() {
                     </div>
                    
                     <select
+                        className='applications_select'
                         value={pageSize}
                         onChange={e => setPageSize(Number(e.target.value))}
                     >
