@@ -1,6 +1,6 @@
 import './Applications.css';
 import mockData from '../mockData';
-import { useTable } from 'react-table';
+import { useTable, usePagination } from 'react-table'; // Импортируем usePagination
 import { useMemo } from 'react';
 
 function Applications() {
@@ -32,7 +32,30 @@ function Applications() {
         },
     ], []);
 
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data });
+    // Добавляем usePagination для пагинации
+    const {
+        getTableProps,
+        getTableBodyProps,
+        headerGroups,
+        page, // Используем page вместо rows для пагинации
+        prepareRow,
+        canPreviousPage,
+        canNextPage,
+        pageOptions,
+        pageCount,
+        gotoPage,
+        nextPage,
+        previousPage,
+        setPageSize,
+        state: { pageIndex, pageSize },
+    } = useTable(
+        {
+            columns,
+            data,
+            initialState: { pageIndex: 0, pageSize: 7 }, // Начальная страница и количество строк на странице
+        },
+        usePagination // Подключаем хук пагинации
+    );
 
     return (
         <div className='main_table'>
@@ -57,7 +80,7 @@ function Applications() {
                     </thead>
 
                     <tbody {...getTableBodyProps()}>
-                        {rows.map((row) => {
+                        {page.map((row) => { // Используем page вместо rows
                             prepareRow(row);
                             const { key, ...rest } = row.getRowProps();
                             return (
@@ -75,6 +98,59 @@ function Applications() {
                         })}
                     </tbody>
                 </table>
+
+                {/* Элементы управления пагинацией */}
+                <div className="pagination">
+                    <div className='next_page_btn'>
+                        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+                            {"<<"}
+                        </button>
+                        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+                            {"<"}
+                        </button>
+                        <button onClick={() => nextPage()} disabled={!canNextPage}>
+                            {">"}
+                        </button>
+                        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+                            {">>"}
+                        </button>
+                    </div>
+                    
+                    <div className='page_number'>
+                        <span>
+                            Page{' '}
+                            <strong>
+                                {pageIndex + 1} of {pageOptions.length}
+                            </strong>{' '}
+                        </span>
+                    </div>
+                    
+                    <div className='go_to_page'>
+                        <span>
+                            | Go to page:{' '}
+                            <input
+                                type="number"
+                                defaultValue={pageIndex + 1}
+                                onChange={e => {
+                                    const page = e.target.value ? Number(e.target.value) - 1 : 0;
+                                    gotoPage(page);
+                                }}
+                                style={{ width: '100px' }}
+                            />
+                        </span>
+                    </div>
+                   
+                    <select
+                        value={pageSize}
+                        onChange={e => setPageSize(Number(e.target.value))}
+                    >
+                        {[5, 7, 20, 30, 40, 50].map(pageSize => (
+                            <option key={pageSize} value={pageSize}>
+                                Show {pageSize}
+                            </option>
+                        ))}
+                    </select>
+                </div>
             </div>
         </div>
     );

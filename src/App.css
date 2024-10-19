@@ -12,11 +12,16 @@ header {
   padding: 15px;
   height: 10px;
   background: #011627;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .main {
   margin-left: 240px; 
   padding: 20px; 
+  padding-top: 70px;
   flex-grow: 1;
   color: #333; 
 }

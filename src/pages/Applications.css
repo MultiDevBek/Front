@@ -40,6 +40,28 @@ td {
     background-color: #ffffff;
 }
 
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.next_page_btn {
+    margin-right: 15px;
+}
+
+.page_number {
+    margin-right: 15px; 
+}
+
+.go_to_page {
+    margin-right: 15px; 
+}
+
+button {
+    margin-right: 5px;
+}
+
 @media (max-width: 600px) {
     th, td {
         padding: 10px;
